@@ -1,13 +1,15 @@
 package com.maidahealth.cafeteria.models;
 
 import jakarta.persistence.*;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serial;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "manager")
-public class ManagerModel {
+public class ManagerModel extends RepresentationModel<ManagerModel> implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -25,7 +27,7 @@ public class ManagerModel {
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 255)
     private String password;
 
     public UUID getId() {
