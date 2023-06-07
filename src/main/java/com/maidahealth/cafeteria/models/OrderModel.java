@@ -3,11 +3,12 @@ package com.maidahealth.cafeteria.models;
 import jakarta.persistence.*;
 
 import java.io.Serial;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "order_delivery")
+public class OrderModel implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -16,8 +17,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(nullable = false, length = 100)
-    private String description;
+    @Column(nullable = false)
+    private String product;
 
     @Column(nullable = false)
     private int quantity;
@@ -33,12 +34,12 @@ public class Order {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getProduct() {
+        return product;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public int getQuantity() {
