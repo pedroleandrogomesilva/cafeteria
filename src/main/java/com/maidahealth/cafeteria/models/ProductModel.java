@@ -1,6 +1,7 @@
 package com.maidahealth.cafeteria.models;
 
 import jakarta.persistence.*;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "product")
-public class ProductModel implements Serializable {
+public class ProductModel extends RepresentationModel<ManagerModel> implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
