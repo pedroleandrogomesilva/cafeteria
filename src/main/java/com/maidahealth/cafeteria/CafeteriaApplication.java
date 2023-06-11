@@ -11,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class CafeteriaApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(CafeteriaApplication.class, args);
 	}
 

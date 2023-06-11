@@ -1,14 +1,16 @@
 package com.maidahealth.cafeteria.models;
 
-import jakarta.persistence.*;
+import lombok.Data;
 
+import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.UUID;
 
+@Data
 @Entity
 @Table(name = "login")
-public class LoginModel implements Serializable {
+public class UserModel implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -18,32 +20,8 @@ public class LoginModel implements Serializable {
     private UUID id;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String username;
 
     @Column(nullable = false)
     private String password;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

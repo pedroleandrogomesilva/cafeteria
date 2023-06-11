@@ -3,13 +3,13 @@ package com.maidahealth.cafeteria.controllers;
 import com.maidahealth.cafeteria.dtos.ClientDto;
 import com.maidahealth.cafeteria.models.ClientModel;
 import com.maidahealth.cafeteria.services.ClientService;
-import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

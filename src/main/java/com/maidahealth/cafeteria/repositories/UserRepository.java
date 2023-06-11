@@ -1,6 +1,6 @@
 package com.maidahealth.cafeteria.repositories;
 
-import com.maidahealth.cafeteria.models.LoginModel;
+import com.maidahealth.cafeteria.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface LoginRepository extends JpaRepository<LoginModel, UUID> {
-    Optional<LoginModel> findByEmail(String email);
+public interface UserRepository extends JpaRepository<UserModel, UUID> {
+    Optional<UserModel> findByUsername(String email);
 
 }

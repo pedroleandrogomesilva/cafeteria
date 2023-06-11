@@ -1,15 +1,18 @@
 package com.maidahealth.cafeteria.controllers;
 
 import com.maidahealth.cafeteria.dtos.ProductDto;
+import com.maidahealth.cafeteria.enums.EnumCategoryProduct;
+import com.maidahealth.cafeteria.exceptions.InvalidCategoryException;
 import com.maidahealth.cafeteria.models.ProductModel;
 import com.maidahealth.cafeteria.services.ProductService;
-import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -20,11 +23,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/product")
 public class ProductController {
-
-    public static final String DRINK = "bebida";
-    public static final String FOOD = "comida";
-    public static final String DESSERT = "sobremesa";
-
     final ProductService productService;
 
     public ProductController(ProductService productService) {
@@ -35,8 +33,8 @@ public class ProductController {
     public ResponseEntity<Object> registerManager(@RequestBody @Valid ProductDto productDto) {
         var productModel = new ProductModel();
 
-        if (!productDto.getCategory().equals(DRINK) && (!productDto.getCategory().equals(FOOD)) && (!productDto.getCategory().equals(DESSERT))) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Category invalid.");
+        if (!productDto.getCategory().equals(EnumCategoryProduct.BEBIDA.toString().toLowerCase()) && (!productDto.getCategory().equals(EnumCategoryProduct.COMIDA.toString().toLowerCase())) && (!productDto.getCategory().equals(EnumCategoryProduct.SOBREMESA.toString().toLowerCase()))) {
+            throw new InvalidCategoryException("Category invalid");
         }
 
         BeanUtils.copyProperties(productDto, productModel);

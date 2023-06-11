@@ -1,12 +1,15 @@
 package com.maidahealth.cafeteria.models;
 
-import jakarta.persistence.*;
+import lombok.Data;
 import org.springframework.hateoas.RepresentationModel;
 
+import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.UUID;
 
+@Data
 @Entity
 @Table(name = "product")
 public class ProductModel extends RepresentationModel<ManagerModel> implements Serializable {
@@ -22,40 +25,8 @@ public class ProductModel extends RepresentationModel<ManagerModel> implements S
     private String name;
 
     @Column(nullable = false)
-    private double price;
+    private BigDecimal price;
 
     @Column(nullable = false, length = 20)
     private String category;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }

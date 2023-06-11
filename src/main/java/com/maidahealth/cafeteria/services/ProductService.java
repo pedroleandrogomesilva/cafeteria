@@ -1,7 +1,6 @@
 package com.maidahealth.cafeteria.services;
 
 import com.maidahealth.cafeteria.models.ProductModel;
-import com.maidahealth.cafeteria.repositories.ManagerRepository;
 import com.maidahealth.cafeteria.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 

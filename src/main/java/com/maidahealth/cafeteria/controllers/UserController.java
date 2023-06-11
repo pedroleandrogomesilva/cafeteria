@@ -1,2 +1,4 @@
-package com.maidahealth.cafeteria.controllers;public class UserController {
+package com.maidahealth.cafeteria.controllers;
+
+public class UserController {
 }
