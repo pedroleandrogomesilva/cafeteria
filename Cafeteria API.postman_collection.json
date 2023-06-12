@@ -1,0 +1,474 @@
+{
+	"info": {
+		"_postman_id": "fdb73d75-3316-42cd-9c64-21709d7d5e48",
+		"name": "Cafeteria API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27690378"
+	},
+	"item": [
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "Cadastrar Gestor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Tiago Silva\",\n    \"establishmentName\" : \"Socin\",\n    \"email\" : \"tiago@socin.com.br\",\n    \"password\" : \"a1b2c3d4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/manager",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"manager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de Gestores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/manager",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"manager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gestor por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/manager/9746fde7-b865-4c40-8d29-d21466332c94",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"manager",
+								"9746fde7-b865-4c40-8d29-d21466332c94"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Gestor por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/manager/d26f7057-970d-47fc-9f9e-0e81a58169e4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"manager",
+								"d26f7057-970d-47fc-9f9e-0e81a58169e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Gestor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Pedro Leandro\",\n    \"establishmentName\" : \"Mikasa Caxias\",\n    \"email\" : \"mks@mikasacaxias.com\",\n    \"password\" : \"a1b2c3d5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/manager/d26f7057-970d-47fc-9f9e-0e81a58169e4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"manager",
+								"d26f7057-970d-47fc-9f9e-0e81a58169e4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Cadastrar Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Camila Aguiar Rodrigues Santos\",\n    \"dateOfBirth\" : \"27/10/1995\",\n    \"phoneNumber\": \"99981135490\",\n    \"email\" : \"camila.santos@cafeteria.com.br\",\n    \"password\" : \"a1b2c3d4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/client/58264db5-94ef-4683-b6bd-c1f3ee461b16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"58264db5-94ef-4683-b6bd-c1f3ee461b16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Cliente por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/client/58264db5-94ef-4683-b6bd-c1f3ee461b16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"58264db5-94ef-4683-b6bd-c1f3ee461b16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Camila Aguiar Rodrigues Santos\",\n    \"dateOfBirth\" : \"27/10/1995\",\n    \"phoneNumber\": \"99981135490\",\n    \"email\" : \"camila.santos@cafeteria.com.br\",\n    \"password\" : \"a1b2c3d4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client/80afc15a-d5ba-4d2d-8bac-203ef612d431",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"80afc15a-d5ba-4d2d-8bac-203ef612d431"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Cadastrar Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Misto completo com queijo, presunto e ovo\",\n    \"price\" : 10.00,\n    \"category\": \"comida\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Produto por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/2e3d256b-a308-46e7-8a02-3c531e1bbac2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"2e3d256b-a308-46e7-8a02-3c531e1bbac2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/64b220d9-1318-4452-9b7b-181c0e899a84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"64b220d9-1318-4452-9b7b-181c0e899a84"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Café Gourmet com castro\",\n    \"price\" : 57.00,\n    \"category\": \"bebida\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/2e3d256b-a308-46e7-8a02-3c531e1bbac2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"2e3d256b-a308-46e7-8a02-3c531e1bbac2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Solictar Pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\" : \"Café Preto sem açúcar\",\n        \"quantity\": 1\n    },\n    {\n        \"name\" : \"Café Preto com açúcar\",\n        \"quantity\": 2\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de Pedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedido por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order/2e3d256b-a308-46e7-8a02-3c531e1bbac2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"2e3d256b-a308-46e7-8a02-3c531e1bbac2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Pedido",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"FINALIZADO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order/34117e57-2f6c-4e28-bd1c-f9e883f3aa49",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"34117e57-2f6c-4e28-bd1c-f9e883f3aa49"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
