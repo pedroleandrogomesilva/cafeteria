@@ -4,7 +4,6 @@ import com.maidahealth.cafeteria.dtos.ItemDto;
 import com.maidahealth.cafeteria.dtos.OrderStatusDto;
 import com.maidahealth.cafeteria.enums.EnumStatusOrder;
 import com.maidahealth.cafeteria.exceptions.OrderNotFoundException;
-import com.maidahealth.cafeteria.exceptions.ProductNotFoundException;
 import com.maidahealth.cafeteria.exceptions.StatusOrderException;
 import com.maidahealth.cafeteria.models.ItemModel;
 import com.maidahealth.cafeteria.models.OrderModel;
@@ -67,7 +66,7 @@ public class OrderService {
     }
 
     public OrderModel changeStatusOrder(UUID uuid, OrderStatusDto orderStatusDto) {
-        Optional<OrderModel> orderModelOptional = Optional.ofNullable(orderRepository.findById(uuid).orElseThrow(() -> new ProductNotFoundException("order not found.")));
+        Optional<OrderModel> orderModelOptional = Optional.ofNullable(orderRepository.findById(uuid).orElseThrow(() -> new OrderNotFoundException("order not found.")));
 
         validateChangeStatus(orderStatusDto.getStatus(), orderModelOptional.get().getStatus());
 
