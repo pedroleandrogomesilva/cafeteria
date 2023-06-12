@@ -29,7 +29,15 @@ public class ProductService {
         return productRepository.findById(uuid);
     }
 
+    public Optional<ProductModel> findByName(String productName) {
+        return productRepository.findByName(productName);
+    }
+
     public void delete(ProductModel productModel) {
         productRepository.delete(productModel);
+    }
+
+    public Double findPriceByName(String productName) {
+        return productRepository.findPriceByName(productName);
     }
 }

@@ -21,15 +21,9 @@ public class ItemModel extends RepresentationModel<ManagerModel> implements Seri
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(nullable = false)
-    private Integer quantity;
-
     @Column(nullable = false, length = 50)
     private String name;
 
     @Column(nullable = false)
-    private BigDecimal price;
-
-    @Column(nullable = false, length = 20)
-    private String category;
+    private Integer quantity;
 }

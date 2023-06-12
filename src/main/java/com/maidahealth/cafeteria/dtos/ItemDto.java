@@ -1,20 +1,14 @@
 package com.maidahealth.cafeteria.dtos;
 
-import javax.validation.constraints.NotBlank;
-import java.math.BigDecimal;
+import com.maidahealth.cafeteria.models.ItemModel;
+import lombok.Data;
+import org.springframework.context.annotation.Bean;
 
+@Data
 public class ItemDto {
 
-    @NotBlank
     private String name;
 
-    @NotBlank
     private Integer quantity;
-
-    @NotBlank
-    private BigDecimal price;
-
-    @NotBlank
-    private String category;
 
 }

@@ -2,6 +2,7 @@ package com.maidahealth.cafeteria.models;
 
 import com.maidahealth.cafeteria.enums.EnumStatusOrder;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import java.io.Serial;
@@ -13,7 +14,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "order_delivery")
-public class OrderModel implements Serializable {
+public class OrderModel extends RepresentationModel<ManagerModel> implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -22,7 +23,7 @@ public class OrderModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ItemModel> itemModelList;
 
     @Column(nullable = false)
@@ -32,4 +33,8 @@ public class OrderModel implements Serializable {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EnumStatusOrder status;
+
+    public void addItemList(ItemModel itemModel) {
+        itemModelList.add(itemModel);
+    }
 }

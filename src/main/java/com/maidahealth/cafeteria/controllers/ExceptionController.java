@@ -2,6 +2,7 @@ package com.maidahealth.cafeteria.controllers;
 
 import com.maidahealth.cafeteria.dtos.StandardErrorDto;
 import com.maidahealth.cafeteria.exceptions.InvalidCategoryException;
+import com.maidahealth.cafeteria.exceptions.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,6 +24,17 @@ public class ExceptionController {
         standardErrorDto.setLocalDateTime(LocalDateTime.now());
 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(standardErrorDto);
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<StandardErrorDto> productNotFoundException(ProductNotFoundException productNotFoundException) {
+        StandardErrorDto standardErrorDto = new StandardErrorDto();
+        standardErrorDto.setCode(HttpStatus.NOT_FOUND.value());
+        standardErrorDto.setStatus(HttpStatus.NOT_FOUND.name());
+        standardErrorDto.setMessage(productNotFoundException.getMessage());
+        standardErrorDto.setLocalDateTime(LocalDateTime.now());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(standardErrorDto);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

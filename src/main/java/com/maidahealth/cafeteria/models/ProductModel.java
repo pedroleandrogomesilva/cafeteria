@@ -21,7 +21,7 @@ public class ProductModel extends RepresentationModel<ManagerModel> implements S
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100, unique = true)
     private String name;
 
     @Column(nullable = false)
