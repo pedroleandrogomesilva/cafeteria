@@ -3,7 +3,9 @@ package com.maidahealth.cafeteria.services;
 import com.maidahealth.cafeteria.dtos.ItemDto;
 import com.maidahealth.cafeteria.dtos.OrderStatusDto;
 import com.maidahealth.cafeteria.enums.EnumStatusOrder;
+import com.maidahealth.cafeteria.exceptions.OrderNotFoundException;
 import com.maidahealth.cafeteria.exceptions.ProductNotFoundException;
+import com.maidahealth.cafeteria.exceptions.StatusOrderException;
 import com.maidahealth.cafeteria.models.ItemModel;
 import com.maidahealth.cafeteria.models.OrderModel;
 import com.maidahealth.cafeteria.models.ProductModel;
@@ -43,7 +45,7 @@ public class OrderService {
             productModelOptional = productService.findByName(item.getName());
             var itemModel = new ItemModel();
             if (!productModelOptional.isPresent()) {
-                throw new ProductNotFoundException(item.getName() + " is a product not found.");
+                throw new OrderNotFoundException(item.getName() + " is a product not found.");
             }
             total += productModelOptional.get().getPrice().doubleValue() * item.getQuantity();
             BeanUtils.copyProperties(item, itemModel);
@@ -77,11 +79,11 @@ public class OrderService {
     private boolean validateChangeStatus(EnumStatusOrder enumStatusOrderDto, EnumStatusOrder enumStatusOrder){
 
         if(!enumStatusOrder.isAllowChangeStatus()){
-            throw new ProductNotFoundException("current order status cannot be changed");
+            throw new StatusOrderException("current order status cannot be changed");
         }
 
         if (enumStatusOrderDto.name().equals(enumStatusOrder.name())) {
-            throw new ProductNotFoundException("the order already has the status " + enumStatusOrderDto.name());
+            throw new StatusOrderException("the order already has the status " + enumStatusOrderDto.name());
         }
 
         return true;

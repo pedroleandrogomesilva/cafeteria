@@ -2,7 +2,9 @@ package com.maidahealth.cafeteria.controllers;
 
 import com.maidahealth.cafeteria.dtos.StandardErrorDto;
 import com.maidahealth.cafeteria.exceptions.InvalidCategoryException;
+import com.maidahealth.cafeteria.exceptions.OrderNotFoundException;
 import com.maidahealth.cafeteria.exceptions.ProductNotFoundException;
+import com.maidahealth.cafeteria.exceptions.StatusOrderException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -42,10 +44,32 @@ public class ExceptionController {
         StandardErrorDto standardErrorDto = new StandardErrorDto();
         standardErrorDto.setCode(HttpStatus.BAD_REQUEST.value());
         standardErrorDto.setStatus(HttpStatus.BAD_REQUEST.name());
-        standardErrorDto.setMessage(methodArgumentNotValidException.getBindingResult().getAllErrors().stream().map(e->e.getDefaultMessage()).collect(Collectors.toList()).toString());
+        standardErrorDto.setMessage(methodArgumentNotValidException.getBindingResult().getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList()).toString());
         standardErrorDto.setLocalDateTime(LocalDateTime.now());
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardErrorDto);
+    }
+
+    @ExceptionHandler(StatusOrderException.class)
+    public ResponseEntity<StandardErrorDto> statusOrderException(StatusOrderException statusOrderException) {
+        StandardErrorDto standardErrorDto = new StandardErrorDto();
+        standardErrorDto.setCode(HttpStatus.NOT_ACCEPTABLE.value());
+        standardErrorDto.setStatus(HttpStatus.NOT_ACCEPTABLE.name());
+        standardErrorDto.setMessage(statusOrderException.getMessage());
+        standardErrorDto.setLocalDateTime(LocalDateTime.now());
+
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(standardErrorDto);
+    }
+
+    @ExceptionHandler(OrderNotFoundException.class)
+    public ResponseEntity<StandardErrorDto> orderNotFoundException(MethodArgumentNotValidException methodArgumentNotValidException) {
+        StandardErrorDto standardErrorDto = new StandardErrorDto();
+        standardErrorDto.setCode(HttpStatus.NOT_FOUND.value());
+        standardErrorDto.setStatus(HttpStatus.NOT_FOUND.name());
+        standardErrorDto.setMessage(methodArgumentNotValidException.getBindingResult().getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList()).toString());
+        standardErrorDto.setLocalDateTime(LocalDateTime.now());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(standardErrorDto);
     }
 
 }
